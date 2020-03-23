@@ -30,6 +30,10 @@
     margin: 1rem;
 }
 
+p span:first-child {
+    font-weight: bold;
+}
+
 button {
 
     border: 1px solid gray;
