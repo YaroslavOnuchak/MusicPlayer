@@ -1,10 +1,9 @@
-function MusicPlayer(url) {
+function MusicPlayer(audioUrl) {
     this.audio = new Audio();
-    this.audio.src = url;
-    this.info = {}
-    this.info.link = url
-    this.info.artist = ''
-    this.info.song = ''
+    this.audio.src = audioUrl.url;
+    this.artist = audioUrl.artist
+    this.song = audioUrl.song
+    this.event();
 
 
 }
@@ -34,34 +33,19 @@ MusicPlayer.prototype.event = function () {
     document.getElementById("volumeslider").addEventListener("mousemove", function () {
         that.audio.volume = volumeslider.value / 100;
     });
-
-
-    let link = this.info.link;
-
-    let newArr, song, artist;
-    for (let i = 0; i < link.length; i++) {
-
-        if (link.indexOf('/', i) < 0) {
-            newArr = link.substring(i, link.indexOf('(')).split('-');
-            break;
-
-        }
-    }
-    for (let i = 0; i < newArr.length; i++) {
-
-
-        this.info.artist = newArr[0].split('_').join(' ');
-        this.info.song = newArr[newArr.length - 1].split('_').join(' ')
-
-    }
-    document.querySelector('.artist').innerText = this.info.artist;
-    document.querySelector('.song').innerText = this.info.song;
+    document.querySelector('.artist').innerText = this.artist;
+    document.querySelector('.song').innerText = this.song;
 
 }
 
-let song = new MusicPlayer('https://muz16.z1.fm/f/b1/anastaysha_-_left_outside_alone_(zf.fm).mp3')
-song.event();
-console.log(song.info)
+
+audioUrl = {
+    url: 'https://muz16.z1.fm/f/b1/anastaysha_-_left_outside_alone_(zf.fm).mp3',
+    artist: 'Anastaysha',
+    song: 'left outside alone'
+}
+let song = new MusicPlayer(audioUrl)
+
 
 
 
