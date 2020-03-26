@@ -25,7 +25,7 @@
          pause.style.display = 'none';
          play.style.display = 'block';
          this.audio.pause()
-     }.bind(this))
+     }.bind(this));
      document.getElementById("volumeslider").addEventListener("mousemove", function () {
          this.audio.volume = volumeslider.value / 100;
      }.bind(this));
