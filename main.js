@@ -26,7 +26,7 @@
          play.style.display = 'block';
          this.audio.pause()
      }.bind(this));
-     document.getElementById("volumeslider").addEventListener('mousemove', function () {
+     document.getElementById('volumeslider').addEventListener('mousemove', function () {
          this.audio.volume = volumeslider.value / 100;
      }.bind(this));
      document.querySelector('.artist').innerText = this.artist;
