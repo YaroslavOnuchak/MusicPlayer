@@ -3,10 +3,10 @@
      this.audio.src = audioUrl.url;
      this.artist = audioUrl.artist
      this.song = audioUrl.song
-     this.event();
+     this.setEventPlayer();
  }
 
- MusicPlayer.prototype.event = function () {
+ MusicPlayer.prototype.setEventPlayer = function () {
      let play = document.querySelector('.play');
      let pause = document.querySelector('.pause');
      let stop = document.querySelector('.stop');
@@ -26,7 +26,7 @@
          play.style.display = 'block';
          this.audio.pause()
      }.bind(this));
-     document.getElementById("volumeslider").addEventListener("mousemove", function () {
+     document.getElementById("volumeslider").addEventListener('mousemove', function () {
          this.audio.volume = volumeslider.value / 100;
      }.bind(this));
      document.querySelector('.artist').innerText = this.artist;
